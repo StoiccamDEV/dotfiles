@@ -1,0 +1,97 @@
+// Waybar Config - Gruvbox Minimal
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32, // Ligeramente más alta para padding vertical
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "", // Iconos Nerd Font (NF)
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+            "urgent": "", // NF Warning sign
+            "focused": "", // NF Dot circle
+            "default": ""  // NF Circle thin
+        },
+        "persistent-workspaces": {
+            "*": 5 // Mostrar al menos 5 workspaces siempre
+        }
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 40 // Permitir títulos un poco más largos
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "format": " {:%H:%M   %d/%m}", // NF Clock, NF Calendar
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%Y-%m-%d}",
+        "interval": 30 // Actualizar cada 30 seg
+    },
+    "cpu": {
+        "format": " {usage}%", // NF Microchip
+        "tooltip": true,
+        "interval": 2
+    },
+    "memory": {
+        "format": " {used:0.1f}G", // NF Memory, mostrar RAM usada en GB
+        "interval": 5
+    },
+    "battery": {
+        // Usa iconos basados en porcentaje y estado
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%", // NF Plug
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}", // Tiempo restante
+        // NF Battery icons
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)", // NF Wifi
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}", // NF Ethernet
+        "format-linked": "󰈀 No IP",
+        "format-disconnected": "󰖪 Desconectado", // NF Wifi off
+        "tooltip-format": "{ifname} via {gwaddr} |  {bandwidthDownBytes}  {bandwidthUpBytes}", // NF Down/Up arrows
+        "on-click-right": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%", // NF Bluetooth
+        "format-bluetooth-muted": " ", // NF Muted, NF Bluetooth
+        "format-muted": "", // NF Muted
+        "format-source": " {volume}%", // NF Microphone
+        "format-source-muted": "", // NF Microphone slash
+        "format-icons": {
+            "headphone": "", // NF Headphones
+            "hands-free": "", // NF Headset
+            "headset": "",
+            "phone": "", // NF Phone
+            "portable": "",
+            "car": "", // NF Car
+            "default": ["", "", ""] // NF Volume icons
+        },
+        "on-click": "pavucontrol", // Abrir control de volumen
+        "scroll_step": 5 // Subir/bajar volumen 5% con scroll
+    }
+}

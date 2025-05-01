@@ -1,0 +1,143 @@
+/* Waybar Styles - Gruvbox Material Dark - REFINADO */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font, FontAwesome, sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(40, 40, 40, 0.9); /* Gruvbox bg #282828 con 90% opacidad */
+    color: #ebdbb2; /* Gruvbox fg */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Tooltips */
+tooltip {
+    background: #3c3836; /* bg1 */
+    border: 1px solid #504945; /* bg2 */
+    border-radius: 4px;
+    padding: 8px;
+}
+tooltip label {
+    color: #ebdbb2; /* fg */
+}
+
+/* Estilo base para módulos */
+#workspaces,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#window {
+    padding: 0 10px; /* Espaciado horizontal */
+    margin: 3px 3px;  /* Espaciado vertical y ligero horizontal */
+}
+
+#workspaces {
+    background-color: #3c3836; /* bg1 */
+    border-radius: 5px; /* Redondeado solo en este grupo */
+    padding: 0 5px;
+    margin-left: 6px; /* Margen izquierdo del borde */
+}
+
+#workspaces button {
+    padding: 2px 5px; /* Ligero padding vertical */
+    color: #928374; /* Gruvbox grey */
+    background-color: transparent;
+    border-radius: 3px;
+}
+
+#workspaces button.focused {
+    color: #fabd2f; /* Gruvbox bright yellow */
+    background-color: #504945; /* bg2 */
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #fb4934; /* Gruvbox bright red */
+}
+
+#workspaces button:hover {
+    background-color: #665c54; /* bg3 */
+    color: #ebdbb2; /* fg */
+    box-shadow: inherit; /* Evitar borde extra en hover */
+}
+
+#window {
+    font-weight: bold;
+    color: #d5c4a1; /* fg1 */
+}
+
+#clock {
+    color: #fabd2f; /* bright yellow */
+}
+
+#battery {
+    color: #b8bb26; /* bright green */
+}
+#battery.charging, #battery.plugged {
+    color: #fabd2f; /* bright yellow */
+}
+#battery.warning:not(.charging) {
+     color: #fe8019; /* bright orange */
+}
+#battery.critical:not(.charging) {
+    color: #fb4934; /* bright red */
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: #fe8019; /* bright orange */
+}
+#network.disconnected {
+    color: #fb4934; /* bright red */
+}
+
+#pulseaudio {
+    color: #d3869b; /* bright purple */
+}
+#pulseaudio.muted {
+    color: #928374; /* grey */
+}
+
+#cpu {
+    color: #8ec07c; /* bright aqua */
+}
+
+#memory {
+    color: #83a598; /* bright blue */
+}
+
+#tray {
+    background-color: #3c3836; /* bg1 */
+    border-radius: 5px;
+    padding: 0 8px;
+    margin-right: 6px; /* Margen derecho del borde */
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #fb4934; /* red */
+    border-radius: 3px; /* Redondear icono que necesita atención */
+}
+
+
+@keyframes blink {
+    to {
+        color: #928374; /* grey */
+        opacity: 0.5;
+    }
+}

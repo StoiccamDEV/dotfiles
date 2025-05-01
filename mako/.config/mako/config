@@ -1,0 +1,36 @@
+# Mako Config - Gruvbox Minimal
+
+font=JetBrainsMono Nerd Font 11
+layer=overlay # Asegura que esté sobre otras ventanas
+# position=top-right # Descomenta para fijar posición
+width=300
+# height=100 # Altura automática basada en contenido
+margin=10,10,10,10 # Top, Right, Bottom, Left
+padding=15
+border-size=2
+border-radius=8 # Coincide con Rofi
+icons=1 # Mostrar iconos si la notificación los envía
+max-icon-size=48
+
+# Gruvbox Material Dark Colors
+background-color=#282828E6 # bg con 80-90% opacidad
+text-color=#ebdbb2       # fg
+border-color=#504945     # bg2
+
+default-timeout=5000     # 5 segundos
+ignore-timeout=no        # Respetar timeout de la notificación si lo envía
+max-visible=5
+sort=-time               # Muestra las más nuevas arriba
+group-by=summary         # Agrupar notificaciones con el mismo resumen
+
+[urgency=low]
+# text-color=#a89984 # Puedes usar colores tenues si quieres
+default-timeout=3000
+
+[urgency=normal]
+# Sin cambios respecto a default
+
+[urgency=high]
+text-color=#fb4934       # red
+border-color=#fb4934
+default-timeout=0        # No desaparece sola

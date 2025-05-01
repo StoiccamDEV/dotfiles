@@ -1,0 +1,114 @@
+/* ~/.config/rofi/config.rasi - Intento con estructura alternativa */
+
+configuration {
+    font: "Iosevka 10";
+    show-icons: false;
+    drun-display-format: "{name}";
+    display-drun: "Apps:";
+    /* Asegúrate de que no haya otras opciones aquí que carguen temas adicionales */
+    /* modi: "drun"; */
+}
+
+/* Definiciones de colores (solo como referencia visual) */
+/* bg:          #282828; */
+/* bg-alt:      #3c3836; */
+/* fg:          #ebdbb2; */
+/* fg-alt:      #a89984; */
+/* accent:      #fabd2f; */ /* <- Este es el que queremos para la selección */
+/* urgent:      #fb4934; */
+/* active:      #b8bb26; */
+
+window {
+    /* Estilos de la ventana principal */
+    background-color: #282828; /* Fondo principal aplicado directamente */
+    width: 420px;
+    location: center;
+    anchor: center;
+    border: 0;
+    padding: 8px; /* Padding alrededor de todo */
+}
+
+/* Configuraciones globales mínimas */
+* {
+    border: 0;
+    border-radius: 6px;
+    /* Variables internas (pueden o no funcionar consistentemente) */
+    /* Podríamos redefinirlas aquí si fuera necesario, pero evitémoslo por ahora */
+    /* accent: #fabd2f; */
+}
+
+mainbox {
+    /* Contenedor principal dentro de la ventana */
+    background-color: inherit; /* Hereda de window */
+    spacing: 8px; /* Espacio entre inputbar y listview */
+    padding: 0; /* Sin padding extra, ya lo tiene window */
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: #3c3836; /* Fondo alternativo directo */
+    text-color:       #ebdbb2; /* Texto principal directo */
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+prompt {
+    enabled: true;
+    background-color: inherit; /* Hereda de inputbar */
+    text-color: #a89984; /* Texto atenuado directo */
+    padding: 0 6px 0 0;
+}
+
+entry {
+    background-color: inherit; /* Hereda de inputbar */
+    text-color: #ebdbb2; /* Texto principal directo */
+    placeholder: "Buscar aplicación...";
+    placeholder-color: #a89984; /* Texto atenuado para placeholder */
+    padding: 0 6px;
+}
+
+listview {
+    lines: 10;
+    columns: 1;
+    fixed-height: false;
+    dynamic: true;
+    scrollbar: false;
+    spacing: 5px; /* Espacio entre elementos de la lista */
+    padding: 5px 0 0 0; /* Padding superior ligero */
+    background-color: transparent; /* Usa el fondo de mainbox/window */
+}
+
+element {
+    /* Estilo base para cada línea de la lista */
+    padding: 8px;
+    border-radius: 6px;
+    background-color: transparent; /* Transparente por defecto */
+    text-color: #ebdbb2; /* Texto principal directo */
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align: 0.5;
+    /* horizontal-align: 0.0; */ /* Alineación a la izquierda por defecto */
+}
+
+/* --- REGLA CRÍTICA --- */
+element selected {
+    /* Estilo para la línea seleccionada */
+    background-color: #fabd2f; /* Amarillo Gruvbox aplicado directamente */
+    text-color:       #282828; /* Texto oscuro (color de fondo base) para contraste */
+}
+/* --- FIN REGLA CRÍTICA --- */
+
+element urgent {
+    /* Estilo para elementos urgentes (si aplica) */
+    background-color: #fb4934; /* Rojo Gruvbox directo */
+    text-color:       #282828; /* Texto oscuro */
+}
+
+element active {
+    /* Estilo para elementos activos (si aplica) */
+    background-color: #b8bb26; /* Verde/Amarillo Gruvbox directo */
+    text-color:       #282828; /* Texto oscuro */
+}
